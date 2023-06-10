@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  </body>
+<head>
+  <title>URL Query String Example</title>
+  <script>
+    function updateQueryString() {
+      var name = document.getElementById("name").value;
+      var year = document.getElementById("year").value;
+      
+      var queryString = "?name=" + encodeURIComponent(name) + "&year=" + encodeURIComponent(year);
+      document.getElementById("url").textContent = "https://localhost:8080/" + queryString;
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year">
+    <br>
+    <input type="button" id="button" value="Submit" onclick="updateQueryString()">
+  </form>
 
+  <h3 id="url">https://localhost:8080/</h3>
+</body>
 </html>
